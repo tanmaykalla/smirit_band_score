@@ -1,0 +1,63 @@
+# %%
+pip install lexicalrichness
+
+
+# %%
+
+
+from lexicalrichness import LexicalRichness
+import lexicalrichness
+lexicalrichness.__version__
+
+
+
+
+# %%
+# Enter your own text here if you prefer
+text4 = """It is not doubtful that with the introduction of computers, the process of delivering education has changed to a much greater extent. Though these digital devices have expedited the availability of data, they are not substitutes of learning process that happens by human interaction. In my opinion, it can be expected that role of teachers may change from classroom teacher to an online teacher, but complete disappearance of classroom sessions is not possible.
+To commence with, acquisition of knowledge with computers involves fun and learning at the same time. Merely touching these digital devices is an activity full of enjoyment for a child. Apart from this, software interactivity and relaxing attitude while learning from computer contribute to grasping knowledge in an effective way. For example, the availability of digital books and other software tools used at higher educational level provides the student ever accessible source of detailed information that otherwise was impossible in the past.
+On the other hand, though the increased complexity of intelligent software embedded in the digital material brings high quality education to the students, the need of human interactive sessions would always be present at least in the foreseeable future. For example, only a human teacher can help a student overcoming his shortcomings with individualised attention.  Therefore, expertise of a teacher in explaining the complexity and clarifying doubt can hardly be mimicked by the computer, no matter how much sophisticated the software is.
+To conclude with, according to me, teachers who are the highly respected professionals in the society will continue to play the most important role in shaping the career as well as the character of the students so that they not only succeed in their life but become better human beings too."""
+
+
+lex = LexicalRichness(text4)
+
+
+# %%
+mltd=lex.mtld(threshold=0.72)
+
+
+# %%
+mltd=lex.mtld(threshold=0.72)
+
+
+def calculate_band_from_mtld(t):
+    mylex = LexicalRichness(t)
+    mtld=mylex.mtld(threshold=0.72)
+    if mtld > 200:
+        return 8
+    elif 150 < mtld <= 200:
+        return 7.5
+    elif 120 < mtld <= 150:
+        return 7
+    elif 100 < mtld <= 120:
+        return 6
+    elif 80 < mtld <= 100:
+        return 5.5
+    elif 60 < mtld <= 80:
+        return 4
+    elif 40 < mtld <= 60:
+        return 3
+    else:
+        return 2
+
+
+# %%
+calculate_band_from_mtld(text4)
+
+
+
+
+
+
+
